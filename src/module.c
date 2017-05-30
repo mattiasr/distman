@@ -54,7 +54,7 @@ int handle_host_check (int event_type, void *data) {
         nm_log(NSLOG_INFO_MESSAGE, "DistMan: Overriding host check");
         return NEBERROR_CALLBACKOVERRIDE;
     }
-	return NEB_OK;
+    return NEB_OK;
 }
 
 int handle_service_check (int event_type, void *data) {
@@ -78,7 +78,7 @@ int nebmodule_init (int flags, char *arg, nebmodule *handle) {
 
     neb_handle = handle;
 
-	event_broker_options = ~0; /* force settings to "everything" */
+    event_broker_options = ~0; /* force settings to "everything" */
     neb_register_callback(NEBCALLBACK_SERVICE_CHECK_DATA, neb_handle, 0, handle_service_check);
     neb_register_callback(NEBCALLBACK_HOST_CHECK_DATA, neb_handle, 0, handle_host_check);
 
@@ -131,5 +131,5 @@ int nebmodule_init (int flags, char *arg, nebmodule *handle) {
 int nebmodule_deinit (int flags, int reason)
 {
     zookeeper_close(zh);
-	return 0;
+    return 0;
 }
